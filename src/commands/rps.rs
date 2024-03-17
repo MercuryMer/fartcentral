@@ -17,20 +17,20 @@ pub fn run(options: &[ResolvedOption]) -> String {
             2 => "scissors",
             _ => "error",
         };
-        match choice {
-            &"rock" => match computer_choice {
+        match *choice {
+             "rock" => match computer_choice {
                 "rock" => "It's a tie! [rock]",
                 "paper" => "You lose! [paper]",
                 "scissors" => "You win! [scissors!]",
                 _ => "error",
             },
-            &"paper" => match computer_choice {
+            "paper" => match computer_choice {
                 "rock" => "You win! [rock!]",
                 "paper" => "It's a tie! [paper!]",
                 "scissors" => "You lose! [scissors]",
                 _ => "error",
             },
-            &"scissors" => match computer_choice {
+            "scissors" => match computer_choice {
                 "rock" => "You lose! [rock]",
                 "paper" => "You win! [paper]",
                 "scissors" => "It's a tie! [scissors]",

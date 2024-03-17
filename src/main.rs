@@ -20,7 +20,7 @@ impl EventHandler for Handler {
             let content = match command.data.name.as_str() {
                 "ping" => Some(commands::ping::run(&command.data.options())),
                 "id" => Some(commands::id::run(&command.data.options())),
-                "rock-hard" => Some(commands::rock::run(&command.data.options())),
+                "rock-hard" => Some(commands::rps::run(&command.data.options())),
 
 
                 _ => Some("not implemented :(".to_string()),
@@ -51,7 +51,7 @@ impl EventHandler for Handler {
                 commands::ping::register(),
                 commands::id::register(),
                 commands::numberinput::register(),
-                commands::rock::register(),
+                commands::rps::register(),
             ])
             .await;
 
