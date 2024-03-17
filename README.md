@@ -5,3 +5,5 @@ how 2 cheese 4000000000
 
 Step 1:
   - Dont Use Typescript (this will bite me in the ass)
+
+![propaganda](https://i.imgur.com/vayUytu.png)
