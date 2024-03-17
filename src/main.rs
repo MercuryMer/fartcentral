@@ -20,11 +20,9 @@ impl EventHandler for Handler {
             let content = match command.data.name.as_str() {
                 "ping" => Some(commands::ping::run(&command.data.options())),
                 "id" => Some(commands::id::run(&command.data.options())),
-                "attachmentinput" => Some(commands::attachmentinput::run(&command.data.options())),
-                "modal" => {
-                    commands::modal::run(&ctx, &command).await.unwrap();
-                    None
-                },
+                "rock-hard" => Some(commands::rock::run(&command.data.options())),
+
+
                 _ => Some("not implemented :(".to_string()),
             };
 
@@ -52,18 +50,15 @@ impl EventHandler for Handler {
             .set_commands(&ctx.http, vec![
                 commands::ping::register(),
                 commands::id::register(),
-                commands::welcome::register(),
                 commands::numberinput::register(),
-                commands::attachmentinput::register(),
-                commands::modal::register(),
+                commands::rock::register(),
             ])
             .await;
 
         println!("I now have the following guild slash commands: {commands:#?}");
 
         let guild_command =
-            Command::create_global_command(&ctx.http, commands::wonderful_command::register())
-                .await;
+            Command::create_global_command(&ctx.http, commands::ping::register()).await;
 
         println!("I created the following global slash command: {guild_command:#?}");
     }
